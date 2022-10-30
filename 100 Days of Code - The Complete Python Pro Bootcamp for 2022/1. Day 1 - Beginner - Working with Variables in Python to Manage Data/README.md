@@ -1,4 +1,3 @@
-#Variables
 ##They will be used to manage data in this file
 This is a code that tells takes in 2 variables
 `city_name`
