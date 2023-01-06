@@ -1,0 +1,41 @@
+* {
+    font-family: 'Fira Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body{
+    color: #f0f0f0;
+    position: relative;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+i{
+    cursor: pointer;
+}
+img{
+    cursor: pointer;
+}
+.flex-box{
+    display: flex;
+    align-items: center;
+}
+/*-------------------First part : The Header-----------------------*/
+header{
+    background: #fff;
+    height: 60px;
+    padding: 10px 2%;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.left-part .fas{
+    font-size: 24px;
+    margin-right: 30px;
+}
+.left-part .fab{
+    font-size: 24px;
+    color: red;
+}

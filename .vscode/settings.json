@@ -1,0 +1,7 @@
+{
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true
+}
