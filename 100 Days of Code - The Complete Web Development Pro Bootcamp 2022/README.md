@@ -7,7 +7,8 @@
 <img align="center" src="https://github-readme-stats.vercel.app/api?username=sagebeme&show_icons=true&theme=radical" alt="sagebeme" width=420 height=180/>
 </p> -->
 
-Created a file with the header and a code play book that will be updated through out the days
+<li>Created a file with the header and a code play book that will be updated through out the days</li>
+<li>Day 1 to 3 I was working on tags and structuring basis HTML to intermediate </li>
 
 </br>
 <h4>
