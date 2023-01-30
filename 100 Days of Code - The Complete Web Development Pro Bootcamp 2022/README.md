@@ -8,3 +8,12 @@
 </p> -->
 
 Created a file with the header and a code play book that will be updated through out the days
+
+</br>
+<h4>
+	<img style="object-fit: cover;" align="right" src="https://media3.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif?cid=ecf05e47b0lxjmphcw78q2hlqppk70ur2n1g5jbcy9p1uopn&rid=giphy.gif&ct=g" width="500" height="281" />
+<ul align="left">
+	<li> HTML, CSS, Bootstrap, Javascript, DOM </li><br/><br/>
+     <li>3 Days deep in Web Dev </li><br/><br/>
+</ul>
+</h4>
