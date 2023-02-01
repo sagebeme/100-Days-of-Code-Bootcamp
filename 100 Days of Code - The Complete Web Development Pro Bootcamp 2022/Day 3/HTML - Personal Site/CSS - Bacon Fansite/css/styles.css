@@ -1,3 +1,4 @@
+/*******************************TAG SELECTOR********************************/
 body{
     background-color: azure;
 }
@@ -5,6 +6,15 @@ h1{
     font-size: 200px;
     color: red;
 }
+/*
 img{
+    background-color: red;
+}*/
+
+/*******************************Class SELECTOR********************************/
+.bacon{
+    background-color: green;
+}
+.eggplant{
     background-color: red;
 }
