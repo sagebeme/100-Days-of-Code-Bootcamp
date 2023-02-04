@@ -32,10 +32,11 @@ p{
 }
 a{
     text-decoration: none;
+    color: #11999e;
 }
 
 a:hover{
-    color: gray;
+    color: palegoldenrod;
 }
 
 hr{
@@ -63,10 +64,15 @@ hr{
     margin: 100px 0;
 }
 
-.bottom-Container{
-    margin: 100px 0;
+.bottom-container{
+    background-color: #66bfbf;
+    padding: 50px 0 20px;
 }
-
+.skill-row{
+    margin: 100px auto;
+    text-align: left;
+    width: 50%;
+}
 .pro{
     text-decoration: underline;
 }
@@ -92,11 +98,6 @@ hr{
     text-align: center;
 }
 
-.skill-row{
-    margin: 100px auto;
-    text-align: left;
-    width: 50%;
-}
 .copy-img{
     width: 25%;
     float: left;
