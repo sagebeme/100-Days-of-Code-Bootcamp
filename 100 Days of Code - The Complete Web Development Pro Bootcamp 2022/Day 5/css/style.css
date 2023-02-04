@@ -2,6 +2,7 @@ body{
     margin: 0;
     text-align: center;
     font-family: 'Merriweather', serif;
+    color: #40514e;
 
 }
 
@@ -70,4 +71,22 @@ p{
 }
 .profile{
     text-align: center;
+}
+
+.skill-row{
+    margin: 100px auto;
+    text-align: left;
+    line-height: 2;
+    width: 50%;
+}
+.copy-img{
+    width: 25%;
+    float: left;
+    margin-right: 30px;
+}
+.writing-img{
+    width: 25%;
+    border-radius: 50%;
+    float: right;
+    margin-right: 30px;
 }
