@@ -34,6 +34,7 @@ if direction == "left":
   if swimorwait == "wait":
     swimorwait = swimorwait.lower()
     threedoors=input("you got to the island safely there are three doors Red, Blue and Yellow which will you pick?")
+    threedoors = threedoors.lower()
     if threedoors == "yellow":
       print("congratulations you got to the treasure")
     elif threedoors == "red":
