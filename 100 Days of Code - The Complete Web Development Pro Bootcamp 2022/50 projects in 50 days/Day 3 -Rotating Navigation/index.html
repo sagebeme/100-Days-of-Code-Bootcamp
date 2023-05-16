@@ -4,19 +4,52 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>My Project</title>
+        <title>Rotating Navigation</title>
         <meta name="description" content="">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Project Starter</h1>
-        <h2>wewe</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt necessitatibus <br>
-             dicta unde, maiores, exercitationem
-            nb.</p>
+        <div class="container">
+            <div class="circle-container">
+                <div class="circle">
+                    <button id="close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button id="open">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <h2>My small lorem Article</h2>
+                <small> Sagebeme </small>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Aliquid mollitia praesentium maxime eveniet, ab eligendi nam vero.
+                    Ad maxime illum quae vitae deleniti ab iusto, provident<br> enim eos quia repellant officia nesciunt!
+                    Cumque repellat, doloribus quidem sit temporibus <br> fugit deleniti corporis commodi consectetur ullam.
+                    Recusandae eius tempora deleniti unde ut cupiditate rem <br>Incidunt, placeat natus est laudantium
+                    commodi unde inventore perferendis, nostrum aliquid <br> dolorem vero blanditiis nulla temporibus facere fuga assumenda sed architecto.
+                </p>
+                <h3>My Animal</h3>
+                <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="doggy">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus officia fugiat dolore,<br>
+                    voluptatibus molestiae eum reprehenderit voluptate accusantium earum similique illo, architecto <br>
+                    labore nemo, ad corporis commodi? Et deserunt placeat sequi beatae! Similique, quidem quod evenietliquam fuga consequatur,
+                    animi sapiente veritatis molestiae aperiam, asperiores deleniti neque tempora quo, officia
+                    <br> velit obcaecati repudiandae praesentium accusantium debitis deserunt itaque assumenda quae mollitia?</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><i class="fa-home"> Home</i></li>
+                <li><i class="fa-user-alt"> About</i></li>
+                <li><i class="fa-contact-book"> Contact</i></li>
+            </ul>
+        </nav>
 
         <script src="script.js"></script>
     </body>
