@@ -1,0 +1,1 @@
+# Contains all the side projects I have
