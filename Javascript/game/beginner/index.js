@@ -46,12 +46,55 @@ class Projectile{
     }
 }
 
+class Enemy{
+    constructor(x, y, radius, color, velocity){
+        this.x = x
+        this.y = y
+        this.radius = radius
+        this.color = color
+        this.velocity = velocity
+    }
+
+    drawProjectile() {
+        cntx.beginPath()
+        cntx.arc(this.x, this.y, this.
+            radius,0, Math.PI * 2, false)
+        cntx.fillStyle =  this.color
+        cntx.fill()
+    }
+
+    update(){
+        this.drawProjectile()
+        this.x = this.x +this.velocity.x
+        this.y = this.y + this.velocity.y
+    }
+}
+
 const x = canvas.width / 2
 const y = canvas.height / 2
 
 const player = new Player(x, y, 30, 'blue')
 
 const projectiles = []
+const enemies = []
+
+
+function spawnEnemies() {
+    setInterval(() => {
+        const x = 100
+        const y = 100
+        const radius = 30
+        const color = 'green'
+        const velocity = {
+            x: 1,
+            y: 1
+        }
+        enemies.push (new Enemy(x, y, radius, color,
+            velocity))
+
+        console.log(enemies)
+    }, 1000);
+}
 
 
 function animate() {
@@ -84,3 +127,4 @@ addEventListener('click', (event)=>{
 })
 
 animate()
+spawnEnemies()
