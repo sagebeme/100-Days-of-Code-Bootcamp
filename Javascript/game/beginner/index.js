@@ -22,7 +22,7 @@ class Player{
     }
 }
 
-class Projectule{
+class Projectile{
     constructor(x, y, radius, color, velocity){
         this.x = x
         this.y = y
@@ -38,6 +38,12 @@ class Projectule{
         cntx.fillStyle =  this.color
         cntx.fill()
     }
+
+    update(){
+        this.drawProjectile()
+        this.x = this.x +this.velocity.x
+        this.y = this.y + this.velocity.y
+    }
 }
 
 const x = canvas.width / 2
@@ -46,21 +52,30 @@ const y = canvas.height / 2
 const player = new Player(x, y, 30, 'blue')
 player.drawPlayer()
 
-function animate(params) {
+const projectile = new Projectile(
+    canvas.width /2,
+    canvas.height / 2,
+    5,
+    'yellow',
+    {
+        x:3,
+        y:3
+    }
+    )
+
+const projectiles = [projectile]
+
+
+function animate() {
     requestAnimationFrame(animate)
-    
+    projectiles.forEach(projectile =>
+        {
+        projectile.update()
+    });
 }
 
 addEventListener('click', (event)=>{
-    const projectile = new Projectule(
-        canvas.width /2,
-        canvas.height,
-        5,
-        'yellow',
-        null
-    )
-
-    projectile.drawProjectile()
+    
 })
 
 animate()
