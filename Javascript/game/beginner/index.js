@@ -1,6 +1,7 @@
 const canvas = document.querySelector('canvas');
-
 const cntx = canvas.getContext('2d');
+
+const scoreEl = document.querySelector('#scoreId')
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -151,7 +152,8 @@ function spawnEnemies () {
   }, 1000);
 }
 
-let animationId;
+let animationId
+let score = 0
 
 function animate () {
   animationId = requestAnimationFrame(animate);
@@ -204,7 +206,7 @@ function animate () {
 
       // when projectile touch enemy
       if (dist - enemy.radius - projectile.radius < 1) {
-        
+
         // create explosions
             for (let i = 0; i < enemy.radius * 2; i++) {
 
@@ -218,8 +220,10 @@ function animate () {
                     })
                 )
             }
-            // removing splashing effect
+            // shrinking the enemy
             if (enemy.radius - 10 > 7) {
+                score += 100
+                scoreEl.innerHTML = score
                 gsap.to(enemy, {
                     radius: enemy.radius - 10
                 })
@@ -228,6 +232,10 @@ function animate () {
                 projectiles.splice(projectileIndex, 1);
             }, 0);
             } else {
+                // remove enemy if too small
+                score += 150
+                scoreEl.innerHTML = score
+
             setTimeout(() => {
                 enemies.splice(index, 1);
                 projectiles.splice(projectileIndex, 1);
