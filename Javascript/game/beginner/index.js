@@ -80,7 +80,7 @@ const enemies = []
 
 
 function spawnEnemies() {
-   // setInterval(() => {
+   setInterval(() => {
         const radius = Math.random() * (30 - 5) + 5
 
         let x
@@ -114,12 +114,12 @@ function spawnEnemies() {
         enemies.push (new Enemy(x, y, radius, color,
             velocity))
 
-   // }, 1000);
+   }, 1000);
 }
 
-
+let animationId
 function animate() {
-    requestAnimationFrame(animate)
+    animationId = requestAnimationFrame(animate)
     cntx.clearRect(0, 0, canvas.width, canvas.height)
     player.drawPlayer()
     projectiles.forEach(projectile =>
@@ -130,14 +130,30 @@ function animate() {
     enemies.forEach((enemy, index) => {
         enemy.update()
 
+        //dist between player and  enemy
+        const dist  = Math.hypot(player.x - enemy.x,
+            player.y - enemy.y)
+
+        //end game
+        if (dist - enemy.radius - player.radius < 1){
+            cancelAnimationFrame(animationId)
+        }
+
+        // dist between projectile and enemy
         projectiles.forEach((projectile, projectileIndex) => {
         const dist  =     Math.hypot(projectile.x - enemy.x,
                 projectile.y - enemy.y)
 
-        // obj touch
+        // obj touch by projectile
         if (dist - enemy.radius - projectile.radius < 1){
-            enemies.splice(index, 1)
-            projectiles.splice(projectileIndex, 1)
+
+            // removing splashing effect
+
+            setTimeout(() => {
+                enemies.splice(index, 1)
+                projectiles.splice(projectileIndex, 1)
+            }, 0);
+
         }
         });
     })
