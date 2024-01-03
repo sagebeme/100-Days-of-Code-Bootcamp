@@ -157,8 +157,12 @@ function animate () {
 
   player.drawPlayer();
 
-  particles.forEach(particle => {
-    particle.update()
+  particles.forEach((particle, index) => {
+    if (particle.alpha <= 0) {
+        particles.splice(index, 1)
+    }else{
+        particle.update()
+    }
   });
 
   projectiles.forEach((projectile, index) => {
