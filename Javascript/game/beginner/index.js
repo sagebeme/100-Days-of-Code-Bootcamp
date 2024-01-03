@@ -70,6 +70,8 @@ class Enemy {
   }
 }
 
+
+const friction = 0.99 // Picked .99 so that particles can go far
 class Particle {
     constructor (x, y, radius, color, velocity) {
       this.x = x;
@@ -93,7 +95,9 @@ class Particle {
 
     update () {
       this.drawParticle();
+      this.velocity.x *= friction
       this.x = this.x + this.velocity.x;
+      this.velocity.y *= friction
       this.y = this.y + this.velocity.y;
       this.alpha -= 0.01
     }
@@ -200,13 +204,17 @@ function animate () {
 
       // when projectile touch enemy
       if (dist - enemy.radius - projectile.radius < 1) {
-            for (let i = 0; i < 8; i++) {
+        
+        // create explosions
+            for (let i = 0; i < enemy.radius * 2; i++) {
 
                 particles.push(
-                    new Particle(projectile.x,projectile.y, 3,
+                    new Particle(projectile.x,projectile.y,
+                        Math.random() * 2,
                         enemy.color, {
-                            x:Math.random() - 0.5,
-                            y:Math.random() - 0.5
+                            // increasing the power of the particle explosion
+                            x:(Math.random() - 0.5) * (Math.random() * 8),
+                            y:(Math.random() - 0.5) * (Math.random() * 8)
                     })
                 )
             }
