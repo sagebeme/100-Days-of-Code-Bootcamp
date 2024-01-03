@@ -52,18 +52,7 @@ const y = canvas.height / 2
 const player = new Player(x, y, 30, 'blue')
 player.drawPlayer()
 
-const projectile = new Projectile(
-    canvas.width /2,
-    canvas.height / 2,
-    5,
-    'yellow',
-    {
-        x:3,
-        y:3
-    }
-    )
-
-const projectiles = [projectile]
+const projectiles = []
 
 
 function animate() {
@@ -75,7 +64,13 @@ function animate() {
 }
 
 addEventListener('click', (event)=>{
-    
+    projectiles.push(new Projectile(canvas.width / 2,
+    canvas.height/ 2, 5, 'pink',
+    {
+        x: 2,
+        y: 2
+    } )
+    )
 })
 
 animate()
