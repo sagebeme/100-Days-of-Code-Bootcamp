@@ -77,20 +77,25 @@ class Particle {
       this.radius = radius;
       this.color = color;
       this.velocity = velocity;
+      this.alpha = 1
     }
 
-    drawProjectile () {
-      cntx.beginPath();
-      cntx.arc(this.x, this.y, this
-        .radius, 0, Math.PI * 2, false);
-      cntx.fillStyle = this.color;
-      cntx.fill();
+    drawParticle () {
+        cntx.save()
+        cntx.globalAlpha = this.alpha
+        cntx.beginPath();
+        cntx.arc(this.x, this.y, this
+            .radius, 0, Math.PI * 2, false);
+        cntx.fillStyle = this.color;
+        cntx.fill();
+        cntx.restore()
     }
 
     update () {
-      this.drawProjectile();
+      this.drawParticle();
       this.x = this.x + this.velocity.x;
       this.y = this.y + this.velocity.y;
+      this.alpha -= 0.01
     }
   }
 
