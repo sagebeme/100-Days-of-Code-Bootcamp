@@ -92,7 +92,6 @@ function spawnEnemies() {
         enemies.push (new Enemy(x, y, radius, color,
             velocity))
 
-        console.log(enemies)
     }, 1000);
 }
 
@@ -105,6 +104,10 @@ function animate() {
         {
         projectile.update()
     });
+
+    enemies.forEach(enemy => (
+        enemy.update()
+    ))
 }
 
 addEventListener('click', (event)=>{
