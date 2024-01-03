@@ -64,12 +64,21 @@ function animate() {
 }
 
 addEventListener('click', (event)=>{
-    projectiles.push(new Projectile(canvas.width / 2,
-    canvas.height/ 2, 5, 'pink',
-    {
-        x: 2,
-        y: 2
-    } )
+
+    const angle = Math.atan2(
+        event.clientY - canvas.height / 2,
+        event.clientX - canvas.width / 2
+        )
+
+    const velocity = {
+        x: Math.cos(angle),
+        y: Math.sin(angle)
+    }
+
+    projectiles.push(new Projectile(
+        canvas.width / 2,
+        canvas.height/ 2,
+        5, 'pink', velocity)
     )
 })
 
