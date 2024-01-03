@@ -73,7 +73,7 @@ class Enemy{
 const x = canvas.width / 2
 const y = canvas.height / 2
 
-const player = new Player(x, y, 30, 'blue')
+const player = new Player(x, y, 10, 'white')
 
 const projectiles = []
 const enemies = []
@@ -98,7 +98,7 @@ function spawnEnemies() {
             canvas.height + radius
         }
 
-        const color = 'green'
+        const color = `hsl(${Math.random() * 360}, 50%, 50%)`
 
         //setting velocity for enemy
 
@@ -118,16 +118,35 @@ function spawnEnemies() {
 }
 
 let animationId
+
 function animate() {
+
     animationId = requestAnimationFrame(animate)
-    cntx.clearRect(0, 0, canvas.width, canvas.height)
+
+    cntx.fillStyle = 'rgba(0, 0, 0, 0.1)'
+    cntx.fillRect(0, 0, canvas.width, canvas.height)
+
     player.drawPlayer()
-    projectiles.forEach(projectile =>
+
+    projectiles.forEach((projectile, index) =>
         {
         projectile.update()
-    });
+
+        // remove projectiles form edge of screen
+        if (
+            projectile.x + projectile.radius < 0 ||
+            projectile.x - projectile.radius > canvas.width ||
+            projectile.y + projectile.radius < 0 ||
+            projectile.y - projectile.radius > canvas.height
+            ){
+            setTimeout(() => {
+                projectiles.splice(index, 1)
+            }, 0);
+        }
+        });
 
     enemies.forEach((enemy, index) => {
+
         enemy.update()
 
         //dist between player and  enemy
@@ -141,7 +160,7 @@ function animate() {
 
         // dist between projectile and enemy
         projectiles.forEach((projectile, projectileIndex) => {
-        const dist  =     Math.hypot(projectile.x - enemy.x,
+        const dist = Math.hypot(projectile.x - enemy.x,
                 projectile.y - enemy.y)
 
         // obj touch by projectile
@@ -168,14 +187,14 @@ addEventListener('click', (event)=>{
         )
 
     const velocity = {
-        x: Math.cos(angle),
-        y: Math.sin(angle)
+        x: Math.cos(angle) * 5,
+        y: Math.sin(angle) * 5
     }
 
     projectiles.push(new Projectile(
         canvas.width / 2,
         canvas.height/ 2,
-        5, 'pink', velocity)
+        5, 'white', velocity)
     )
 })
 
