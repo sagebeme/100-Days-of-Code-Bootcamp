@@ -124,11 +124,13 @@ let intervalId
 let score = 0;
 
 function init() {
+  player = new Player(x, y, 10, 'white');
   projectiles = [];
   enemies = [];
   particles = [];
   animationId = [];
   score = 0;
+  scoreEl.innerHTML = 0;
   modalEl.style.display = 'none'
 }
 
@@ -217,6 +219,15 @@ function animate () {
       cancelAnimationFrame(animationId);
       // reducing memory wastage
       clearInterval(intervalId)
+
+      gsap.fromTo('#modalEl',{
+        scale: 0.8,
+        opacity:0
+      },{
+        scale:1,
+        opacity:1,
+        ease: 'expo'
+      })
       modalEl.style.display = 'block'
       modalScoreEl.innerHTML = score
     }
@@ -288,7 +299,16 @@ buttonEl.addEventListener('click', ()=>{
   init();
   animate();
   spawnEnemies();
-
+  gsap.to('#modalEl',{
+    opacity: 0,
+    scale: 0.8,
+    duration: 0.2,
+    ease: 'expo.in', 
+    onComplete: ()=>{
+      // to remove the pointer
+      modalEl.style.display = 'none'
+    }
+  })
 })
 
 // starting the game
@@ -296,6 +316,16 @@ startButtonEl.addEventListener('click', ()=>{
   init();
   animate();
   spawnEnemies();
-  startModalEl.style.display = 'none'
+  //startModalEl.style.display = 'none'
+  gsap.to('#startModalEl',{
+    opacity: 0,
+    scale: 0.8,
+    duration: 0.2,
+    ease: 'expo.in', 
+    onComplete: ()=>{
+      // to remove the pointer
+      startModalEl.style.display = 'none'
+    }
+  })
 })
 
