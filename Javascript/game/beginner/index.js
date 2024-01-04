@@ -163,13 +163,14 @@ function animate () {
 
   player.drawPlayer();
 
-  particles.forEach((particle, index) => {
+  for (let index = particles.length -1; index >= 0; index--) {
+    const particle = particles[index];
     if (particle.alpha <= 0) {
         particles.splice(index, 1)
     }else{
         particle.update()
     }
-  });
+  }
 
   for (let ProjectileIndex = projectiles.length - 1; ProjectileIndex >= 0; ProjectileIndex--) {
     const projectile = projectiles[ProjectileIndex];
@@ -182,9 +183,7 @@ function animate () {
             projectile.y + projectile.radius < 0 ||
             projectile.y - projectile.radius > canvas.height
     ) {
-      setTimeout(() => {
         projectiles.splice(ProjectileIndex, 1);
-      }, 0);
     }
   };
 
@@ -230,18 +229,14 @@ function animate () {
                     radius: enemy.radius - 10
                 })
                 // removing projectile after hitting the enemy to shrink enemy
-                setTimeout(() => {
                     projectiles.splice(projectileIndex, 1);
-                }, 0);
             } else {
                 // remove enemy if too small
                   score += 150
                   scoreEl.innerHTML = score
 
-                  setTimeout(() => {
                       enemies.splice(index, 1);
                       projectiles.splice(projectileIndex, 1);
-                  }, 0);
               }
       }
     });
