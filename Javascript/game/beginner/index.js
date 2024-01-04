@@ -187,7 +187,8 @@ function animate () {
     }
   });
 
-  enemies.forEach((enemy, index) => {
+  for (let index = enemies.length -1; index >= 0; index--) {
+    const enemy = enemies[index]
     enemy.update();
 
     // dist between player and  enemy
@@ -227,23 +228,23 @@ function animate () {
                 gsap.to(enemy, {
                     radius: enemy.radius - 10
                 })
-            // removing projectile after hitting the enemy to shrink enemy
-            setTimeout(() => {
-                projectiles.splice(projectileIndex, 1);
-            }, 0);
+                // removing projectile after hitting the enemy to shrink enemy
+                setTimeout(() => {
+                    projectiles.splice(projectileIndex, 1);
+                }, 0);
             } else {
                 // remove enemy if too small
-                score += 150
-                scoreEl.innerHTML = score
+                  score += 150
+                  scoreEl.innerHTML = score
 
-            setTimeout(() => {
-                enemies.splice(index, 1);
-                projectiles.splice(projectileIndex, 1);
-            }, 0);
-            }
-        }
+                  setTimeout(() => {
+                      enemies.splice(index, 1);
+                      projectiles.splice(projectileIndex, 1);
+                  }, 0);
+              }
+      }
     });
-  });
+  }
 }
 
 addEventListener('click', (event) => {
