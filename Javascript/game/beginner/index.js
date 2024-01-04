@@ -2,6 +2,10 @@ const canvas = document.querySelector('canvas');
 const cntx = canvas.getContext('2d');
 
 const scoreEl = document.querySelector('#scoreId')
+const modalEl = document.querySelector('#modalEl')
+const modalScoreEl = document.querySelector('#modalScoreEl')
+const buttonEl = document.querySelector('#buttonEl')
+
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
@@ -107,14 +111,26 @@ class Particle {
 const x = canvas.width / 2;
 const y = canvas.height / 2;
 
-const player = new Player(x, y, 10, 'white');
+let player = new Player(x, y, 10, 'white');
 
-const projectiles = [];
-const enemies = [];
-const particles = [];
+let projectiles = [];
+let enemies = [];
+let particles = [];
+let animationId = [];
+let intervalId
+let score = 0;
+
+function init() {
+  projectiles = [];
+  enemies = [];
+  particles = [];
+  animationId = [];
+  score = 0;
+  modalEl.style.display = 'none'
+}
 
 function spawnEnemies () {
-  setInterval(() => {
+  intervalId = setInterval(() => {
     const radius = Math.random() * (30 - 5) + 5;
 
     let x;
@@ -152,8 +168,6 @@ function spawnEnemies () {
   }, 1000);
 }
 
-let animationId
-let score = 0
 
 function animate () {
   animationId = requestAnimationFrame(animate);
@@ -198,6 +212,10 @@ function animate () {
     // end game
     if (dist - enemy.radius - player.radius < 1) {
       cancelAnimationFrame(animationId);
+      // reducing memory wastage
+      clearInterval(intervalId)
+      modalEl.style.display = 'block'
+      modalScoreEl.innerHTML = score
     }
 
     // dist between projectile and enemy
@@ -242,7 +260,7 @@ function animate () {
     });
   }
 }
-
+// shoot projectiles
 addEventListener('click', (event) => {
 // setting velocity for projectiles
   const angle = Math.atan2(
@@ -261,6 +279,13 @@ addEventListener('click', (event) => {
     5, 'white', velocity)
   );
 });
+
+buttonEl.addEventListener('click', ()=>{
+  init();
+  animate();
+  spawnEnemies();
+
+})
 
 animate();
 spawnEnemies();
