@@ -1,6 +1,7 @@
 <style>
     body{
         margin: 0;
+        background-color: black;
         font-family: sans-serif;
     }
 </style>
@@ -65,6 +66,41 @@
         cursor: pointer;
     "
     >Restart Game</button>
+</div>
+<div
+    id="startModalEl"
+        style="
+        position: absolute;
+        background-color: white;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        padding: 15px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+     ">
+    <h1
+        style="
+            font-size: 24px;
+            margin-top: 8px;
+            margin-bottom: 0;
+        ">
+        Home Defend Game
+    </h1>
+    <button
+    id="startButtonEl"
+    style="
+        margin-top: 13px;
+        background-color: rgb(51, 0, 255);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    "
+    >Start Game</button>
 </div>
 <canvas>
 </canvas>

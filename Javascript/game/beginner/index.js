@@ -5,6 +5,9 @@ const scoreEl = document.querySelector('#scoreId')
 const modalEl = document.querySelector('#modalEl')
 const modalScoreEl = document.querySelector('#modalScoreEl')
 const buttonEl = document.querySelector('#buttonEl')
+const startButtonEl = document.querySelector("#startButtonEl")
+const startModalEl = document.querySelector('#startModalEl')
+
 
 
 canvas.width = innerWidth;
@@ -260,6 +263,7 @@ function animate () {
     });
   }
 }
+
 // shoot projectiles
 addEventListener('click', (event) => {
 // setting velocity for projectiles
@@ -287,5 +291,11 @@ buttonEl.addEventListener('click', ()=>{
 
 })
 
-animate();
-spawnEnemies();
+// starting the game
+startButtonEl.addEventListener('click', ()=>{
+  init();
+  animate();
+  spawnEnemies();
+  startModalEl.style.display = 'none'
+})
+
