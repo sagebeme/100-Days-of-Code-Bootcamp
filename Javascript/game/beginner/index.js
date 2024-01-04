@@ -171,7 +171,8 @@ function animate () {
     }
   });
 
-  projectiles.forEach((projectile, index) => {
+  for (let ProjectileIndex = projectiles.length - 1; ProjectileIndex >= 0; ProjectileIndex--) {
+    const projectile = projectiles[ProjectileIndex];
     projectile.update();
 
     // remove projectiles form edge of screen
@@ -182,10 +183,10 @@ function animate () {
             projectile.y - projectile.radius > canvas.height
     ) {
       setTimeout(() => {
-        projectiles.splice(index, 1);
+        projectiles.splice(ProjectileIndex, 1);
       }, 0);
     }
-  });
+  };
 
   for (let index = enemies.length -1; index >= 0; index--) {
     const enemy = enemies[index]
