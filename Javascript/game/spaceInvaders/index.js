@@ -41,7 +41,7 @@ class Player {
         // c.fillStyle = 'red'
         // c.fillRect(this.position.x, this.position.y, this.position.width, this.position.height)
         // Drawing the player's image on the canvas at the specified position
-        c.drawImage(this.image, this.position.x, this.position.y);
+        c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
     }
 }
 
