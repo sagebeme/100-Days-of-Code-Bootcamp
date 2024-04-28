@@ -27,7 +27,7 @@ class Player {
         // Creating an image object for the player's spaceship
         const image = new Image();
         // Setting the source of the image
-        image.src = './img/spaceship.png'; // Adjust the path and filename as needed
+        image.src = './img/spaceship.png';
         // Assigning the image object to the player
         this.image = image;
 
@@ -38,6 +38,8 @@ class Player {
 
     // Method to draw the player on the canvas
     draw() {
+        // c.fillStyle = 'red'
+        // c.fillRect(this.position.x, this.position.y, this.position.width, this.position.height)
         // Drawing the player's image on the canvas at the specified position
         c.drawImage(this.image, this.position.x, this.position.y);
     }
@@ -54,7 +56,8 @@ function animate() {
     // Requesting the next animation frame
     requestAnimationFrame(animate);
     // Logging a message to the console for testing
-    console.log('Animation running...');
+    c.fillStyle = 'black'
+    c.fillRect(0,0, canvas.width, canvas.height)
     player.draw()
 }
 
