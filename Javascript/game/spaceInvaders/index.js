@@ -55,6 +55,7 @@ function animate() {
     requestAnimationFrame(animate);
     // Logging a message to the console for testing
     console.log('Animation running...');
+    player.draw()
 }
 
 // Starting the animation loop
