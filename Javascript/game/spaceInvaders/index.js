@@ -80,3 +80,24 @@ function animate() {
 
 // Starting the animation loop
 animate();
+
+addEventListener('keydown',
+({key})=>{//obj destructuring getting the key that's getting pressed
+    switch(key){
+        case 'a':
+            console.log('left')
+            break
+        case 'd':
+            console.log('right')
+            break
+        case ' ':
+            console.log('space')
+            break
+        case 's':
+            console.log('down')
+            break
+        case 'w':
+            console.log('up')
+            break
+    }
+})
