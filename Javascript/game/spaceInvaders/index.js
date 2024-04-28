@@ -12,11 +12,6 @@ canvas.height = innerHeight;
 class Player {
     // Constructor for initializing player properties
     constructor() {
-        // Setting initial position of the player
-        this.position = {
-            x: 200,
-            y: 200
-        };
 
         // Setting initial velocity of the player
         this.velocity = {
@@ -28,12 +23,27 @@ class Player {
         const image = new Image();
         // Setting the source of the image
         image.src = './img/spaceship.png';
-        // Assigning the image object to the player
-        this.image = image;
+        //listening to see when the image is fully loaded
+        image.onload = ()=>{
 
-        // Setting the width and height of the player
-        this.width = 100;
-        this.height = 100;
+            // Assigning the image object to the player
+            this.image = image;
+
+            //scaling the image to look smaller than it's original size
+            const scale = .15
+
+            // Setting the width and height of the player
+
+            this.width = image.width * scale;
+            this.height = image.height * scale;
+
+            // Setting initial position of the player
+            // moved it here because it was getting the width that was loading
+            this.position = {
+                x: canvas.width/2 - this.width/2,
+                y: canvas.height - this.height - 20
+            };
+        }
     }
 
     // Method to draw the player on the canvas
@@ -41,7 +51,14 @@ class Player {
         // c.fillStyle = 'red'
         // c.fillRect(this.position.x, this.position.y, this.position.width, this.position.height)
         // Drawing the player's image on the canvas at the specified position
-        c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+        if (this.image)
+        c.drawImage(
+            this.image,
+            this.position.x,
+            this.position.y,
+            this.width,
+            this.height
+        );
     }
 }
 
